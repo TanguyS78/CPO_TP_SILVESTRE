@@ -32,24 +32,24 @@ public class nouveaujeu extends javax.swing.JFrame {
         up_chiffre_2 = new javax.swing.JButton();
         up_chiffre_3 = new javax.swing.JButton();
         up_chiffre_4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jLabel13 = new javax.swing.JLabel();
-        jButton10 = new javax.swing.JButton();
+        down_chiffre_1 = new javax.swing.JButton();
+        down_chiffre_2 = new javax.swing.JButton();
+        down_chiffre_3 = new javax.swing.JButton();
+        down_chiffre_4 = new javax.swing.JButton();
+        texte_chiffre_0 = new javax.swing.JLabel();
+        texte_chiffre_1 = new javax.swing.JLabel();
+        texte_chiffre_2 = new javax.swing.JLabel();
+        texte_chiffre_3 = new javax.swing.JLabel();
+        texte_lbl_nb_chiffres_exacts = new javax.swing.JLabel();
+        texte_lbl_nb_chiffres_haut = new javax.swing.JLabel();
+        texte_lbl_nb_chiffres_bas = new javax.swing.JLabel();
+        texte_nb_chiffres_exacts = new javax.swing.JLabel();
+        texte_nb_chiffres_haut = new javax.swing.JLabel();
+        texte_nb_chiffres_bas = new javax.swing.JLabel();
+        texte_tentatives = new javax.swing.JLabel();
+        bouton_tester = new javax.swing.JButton();
+        texte_score = new javax.swing.JLabel();
+        bouton_recommencer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -57,74 +57,88 @@ public class nouveaujeu extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 6, -1, -1));
 
-        up_chiffre_1.setText("jButton1");
-        getContentPane().add(up_chiffre_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 62, 20, -1));
+        up_chiffre_1.setText("/\\");
+            getContentPane().add(up_chiffre_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 40, -1));
 
-        up_chiffre_2.setText("jButton2");
-        getContentPane().add(up_chiffre_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 62, 20, -1));
+            up_chiffre_2.setText("/\\");
+                getContentPane().add(up_chiffre_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 40, -1));
 
-        up_chiffre_3.setText("jButton3");
-        getContentPane().add(up_chiffre_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 62, 20, -1));
+                up_chiffre_3.setText("/\\");
+                    getContentPane().add(up_chiffre_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 40, -1));
 
-        up_chiffre_4.setText("jButton4");
-        getContentPane().add(up_chiffre_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 62, 20, -1));
+                    up_chiffre_4.setText("/\\");
+                        getContentPane().add(up_chiffre_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 40, -1));
 
-        jButton5.setText("jButton5");
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 177, 20, -1));
+                        down_chiffre_1.setText("\\/");
+                        down_chiffre_1.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                down_chiffre_1ActionPerformed(evt);
+                            }
+                        });
+                        getContentPane().add(down_chiffre_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 40, -1));
 
-        jButton6.setText("jButton6");
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 177, 20, -1));
+                        down_chiffre_2.setText("\\/");
+                        getContentPane().add(down_chiffre_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 40, -1));
 
-        jButton7.setText("jButton7");
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 177, 20, -1));
+                        down_chiffre_3.setText("\\/");
+                        getContentPane().add(down_chiffre_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 40, -1));
 
-        jButton8.setText("jButton8");
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 174, 20, -1));
+                        down_chiffre_4.setText("\\/");
+                        getContentPane().add(down_chiffre_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 40, -1));
 
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 124, -1, -1));
+                        texte_chiffre_0.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+                        texte_chiffre_0.setText("0");
+                        getContentPane().add(texte_chiffre_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 40, 85));
 
-        jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 124, -1, -1));
+                        texte_chiffre_1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+                        texte_chiffre_1.setText("0");
+                        getContentPane().add(texte_chiffre_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 40, 85));
 
-        jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 124, -1, -1));
+                        texte_chiffre_2.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+                        texte_chiffre_2.setText("0");
+                        getContentPane().add(texte_chiffre_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 40, 85));
 
-        jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 124, -1, -1));
+                        texte_chiffre_3.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+                        texte_chiffre_3.setText("0");
+                        getContentPane().add(texte_chiffre_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 40, 85));
 
-        jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 218, -1, -1));
+                        texte_lbl_nb_chiffres_exacts.setText("Nombre de chiffres exact :");
+                        getContentPane().add(texte_lbl_nb_chiffres_exacts, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
-        jLabel7.setText("jLabel7");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 300, -1, -1));
+                        texte_lbl_nb_chiffres_haut.setText("Nombre de chiffres trop hauts :");
+                        getContentPane().add(texte_lbl_nb_chiffres_haut, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
-        jLabel8.setText("jLabel8");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 338, -1, -1));
+                        texte_lbl_nb_chiffres_bas.setText("Nombre de chiffres trop bas :");
+                        getContentPane().add(texte_lbl_nb_chiffres_bas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
-        jLabel9.setText("jLabel9");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 218, -1, -1));
+                        texte_nb_chiffres_exacts.setText("0");
+                        getContentPane().add(texte_nb_chiffres_exacts, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 10, -1));
 
-        jLabel10.setText("jLabel10");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
+                        texte_nb_chiffres_haut.setText("0");
+                        getContentPane().add(texte_nb_chiffres_haut, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, -1));
 
-        jLabel11.setText("jLabel11");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 338, -1, -1));
+                        texte_nb_chiffres_bas.setText("0");
+                        getContentPane().add(texte_nb_chiffres_bas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
 
-        jLabel12.setText("jLabel12");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 226, -1, -1));
+                        texte_tentatives.setText("Tentatives");
+                        getContentPane().add(texte_tentatives, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 226, -1, -1));
 
-        jButton9.setText("jButton9");
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 121, 50, -1));
+                        bouton_tester.setText("Tester");
+                        getContentPane().add(bouton_tester, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 121, -1, -1));
 
-        jLabel13.setText("jLabel13");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 269, -1, -1));
+                        texte_score.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+                        texte_score.setText("0 sur 5");
+                        getContentPane().add(texte_score, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 269, -1, -1));
 
-        jButton10.setText("jButton10");
-        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, -1, -1));
+                        bouton_recommencer.setText("jButton10");
+                        getContentPane().add(bouton_recommencer, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, -1, -1));
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+                        pack();
+                    }// </editor-fold>//GEN-END:initComponents
+
+    private void down_chiffre_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_down_chiffre_1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,25 +166,25 @@ public class nouveaujeu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton bouton_recommencer;
+    private javax.swing.JButton bouton_tester;
+    private javax.swing.JButton down_chiffre_1;
+    private javax.swing.JButton down_chiffre_2;
+    private javax.swing.JButton down_chiffre_3;
+    private javax.swing.JButton down_chiffre_4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel texte_chiffre_0;
+    private javax.swing.JLabel texte_chiffre_1;
+    private javax.swing.JLabel texte_chiffre_2;
+    private javax.swing.JLabel texte_chiffre_3;
+    private javax.swing.JLabel texte_lbl_nb_chiffres_bas;
+    private javax.swing.JLabel texte_lbl_nb_chiffres_exacts;
+    private javax.swing.JLabel texte_lbl_nb_chiffres_haut;
+    private javax.swing.JLabel texte_nb_chiffres_bas;
+    private javax.swing.JLabel texte_nb_chiffres_exacts;
+    private javax.swing.JLabel texte_nb_chiffres_haut;
+    private javax.swing.JLabel texte_score;
+    private javax.swing.JLabel texte_tentatives;
     private javax.swing.JButton up_chiffre_1;
     private javax.swing.JButton up_chiffre_2;
     private javax.swing.JButton up_chiffre_3;
