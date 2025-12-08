@@ -54,8 +54,8 @@ public class nouveaujeu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 6, -1, -1));
+        jLabel1.setText("Trouvez le bon code en moins de 5 tentatives !");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
         up_chiffre_1.setText("/\\");
             getContentPane().add(up_chiffre_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 40, -1));
@@ -130,7 +130,7 @@ public class nouveaujeu extends javax.swing.JFrame {
                         texte_score.setText("0 sur 5");
                         getContentPane().add(texte_score, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 269, -1, -1));
 
-                        bouton_recommencer.setText("jButton10");
+                        bouton_recommencer.setText("Recommencer");
                         getContentPane().add(bouton_recommencer, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, -1, -1));
 
                         pack();
