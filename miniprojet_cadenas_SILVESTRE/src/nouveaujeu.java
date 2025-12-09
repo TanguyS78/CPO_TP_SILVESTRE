@@ -91,7 +91,24 @@ public class nouveaujeu extends javax.swing.JFrame {
     // 3. Réactiver le bouton tester
     bouton_tester.setEnabled(true);
         });
+    bouton_recommencer.addActionListener(e -> {
+    // 1. Réinitialiser le métier
+    jeu.genererCombinaison();
+
+    // 2. Remettre les affichages à zéro
+    texte_chiffre_0.setText("0");
+    texte_chiffre_1.setText("0");
+    texte_chiffre_2.setText("0");
+    texte_chiffre_3.setText("0");
     
+    texte_nb_chiffres_exacts.setText("0");
+    texte_nb_chiffres_haut.setText("0");
+    texte_nb_chiffres_bas.setText("0");
+    texte_tentatives.setText("0 sur 5");
+
+    // 3. Réactiver le bouton tester
+    bouton_tester.setEnabled(true);
+});
     
     }
 
