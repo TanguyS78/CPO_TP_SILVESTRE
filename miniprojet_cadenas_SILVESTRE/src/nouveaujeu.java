@@ -11,11 +11,29 @@ public class nouveaujeu extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(nouveaujeu.class.getName());
 
+    Metier jeu = new Metier();
+    
+    
+    // Méthode pour incrémenter un chiffre (0 -> 1 ... -> 9 -> 0)
+    private void incrementerLabel(javax.swing.JLabel label) {
+    int valeur = Integer.parseInt(label.getText());
+    valeur = (valeur + 1) % 10;
+    label.setText(String.valueOf(valeur));
+    }
+
+// Méthode pour décrémenter un chiffre (0 -> 9 ... -> 1 -> 0)
+    private void decrementerLabel(javax.swing.JLabel label) {
+    int valeur = Integer.parseInt(label.getText());
+    if (valeur == 0) valeur = 9;
+    else valeur--;
+    label.setText(String.valueOf(valeur));
+    }
     /**
      * Creates new form nouveaujeu
      */
     public nouveaujeu() {
         initComponents();
+        
     }
 
     /**
@@ -54,19 +72,40 @@ public class nouveaujeu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Trouvez le bon code en moins de 5 tentatives !");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
         up_chiffre_1.setText("/\\");
+            up_chiffre_1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    up_chiffre_1ActionPerformed(evt);
+                }
+            });
             getContentPane().add(up_chiffre_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 40, -1));
 
             up_chiffre_2.setText("/\\");
+                up_chiffre_2.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        up_chiffre_2ActionPerformed(evt);
+                    }
+                });
                 getContentPane().add(up_chiffre_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 40, -1));
 
                 up_chiffre_3.setText("/\\");
+                    up_chiffre_3.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                            up_chiffre_3ActionPerformed(evt);
+                        }
+                    });
                     getContentPane().add(up_chiffre_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 40, -1));
 
                     up_chiffre_4.setText("/\\");
+                        up_chiffre_4.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                up_chiffre_4ActionPerformed(evt);
+                            }
+                        });
                         getContentPane().add(up_chiffre_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 40, -1));
 
                         down_chiffre_1.setText("\\/");
@@ -78,12 +117,27 @@ public class nouveaujeu extends javax.swing.JFrame {
                         getContentPane().add(down_chiffre_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 40, -1));
 
                         down_chiffre_2.setText("\\/");
+                        down_chiffre_2.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                down_chiffre_2ActionPerformed(evt);
+                            }
+                        });
                         getContentPane().add(down_chiffre_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 40, -1));
 
                         down_chiffre_3.setText("\\/");
+                        down_chiffre_3.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                down_chiffre_3ActionPerformed(evt);
+                            }
+                        });
                         getContentPane().add(down_chiffre_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 40, -1));
 
                         down_chiffre_4.setText("\\/");
+                        down_chiffre_4.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                down_chiffre_4ActionPerformed(evt);
+                            }
+                        });
                         getContentPane().add(down_chiffre_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 40, -1));
 
                         texte_chiffre_0.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
@@ -124,6 +178,11 @@ public class nouveaujeu extends javax.swing.JFrame {
                         getContentPane().add(texte_tentatives, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 226, -1, -1));
 
                         bouton_tester.setText("Tester");
+                        bouton_tester.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                bouton_testerActionPerformed(evt);
+                            }
+                        });
                         getContentPane().add(bouton_tester, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 121, -1, -1));
 
                         texte_score.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
@@ -131,14 +190,48 @@ public class nouveaujeu extends javax.swing.JFrame {
                         getContentPane().add(texte_score, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 269, -1, -1));
 
                         bouton_recommencer.setText("Recommencer");
+                        bouton_recommencer.addActionListener(new java.awt.event.ActionListener() {
+                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                bouton_recommencerActionPerformed(evt);
+                            }
+                        });
                         getContentPane().add(bouton_recommencer, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, -1, -1));
 
                         pack();
                     }// </editor-fold>//GEN-END:initComponents
 
     private void down_chiffre_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_1ActionPerformed
+    down_chiffre_1.addActionListener(e -> decrementerLabel(texte_chiffre_0));    }//GEN-LAST:event_down_chiffre_1ActionPerformed
+
+    private void up_chiffre_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_1ActionPerformed
+    up_chiffre_1.addActionListener(e -> incrementerLabel(texte_chiffre_0)); // [cite: 40, 44]        // TODO add your handling code here:
+    }//GEN-LAST:event_up_chiffre_1ActionPerformed
+
+    private void up_chiffre_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_2ActionPerformed
+    up_chiffre_2.addActionListener(e -> incrementerLabel(texte_chiffre_1));    }//GEN-LAST:event_up_chiffre_2ActionPerformed
+
+    private void up_chiffre_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_3ActionPerformed
+    up_chiffre_3.addActionListener(e -> incrementerLabel(texte_chiffre_2));    }//GEN-LAST:event_up_chiffre_3ActionPerformed
+
+    private void up_chiffre_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_4ActionPerformed
+    up_chiffre_4.addActionListener(e -> incrementerLabel(texte_chiffre_3));    }//GEN-LAST:event_up_chiffre_4ActionPerformed
+
+    private void down_chiffre_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_2ActionPerformed
+    down_chiffre_2.addActionListener(e -> decrementerLabel(texte_chiffre_1));    }//GEN-LAST:event_down_chiffre_2ActionPerformed
+
+    private void down_chiffre_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_3ActionPerformed
+    down_chiffre_3.addActionListener(e -> decrementerLabel(texte_chiffre_2));    }//GEN-LAST:event_down_chiffre_3ActionPerformed
+
+    private void down_chiffre_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_4ActionPerformed
+    down_chiffre_4.addActionListener(e -> decrementerLabel(texte_chiffre_3));    }//GEN-LAST:event_down_chiffre_4ActionPerformed
+
+    private void bouton_testerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bouton_testerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_down_chiffre_1ActionPerformed
+    }//GEN-LAST:event_bouton_testerActionPerformed
+
+    private void bouton_recommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bouton_recommencerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bouton_recommencerActionPerformed
 
     /**
      * @param args the command line arguments
