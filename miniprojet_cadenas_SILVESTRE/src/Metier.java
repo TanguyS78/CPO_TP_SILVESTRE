@@ -22,4 +22,29 @@ public class Metier {
         // System.out.println("Code secret : " + java.util.Arrays.toString(combinaisonSecrete));
     }
 
+ // Vérifie la proposition du joueur et renvoie les résultats
+    // Index 0: Exacts, Index 1: Trop hauts, Index 2: Trop bas
+    public int[] verifierCombinaison(int[] proposition) {
+        int[] resultats = new int[3]; // [exact, haut, bas]
+        
+        for (int i = 0; i < 4; i++) {
+            if (proposition[i] == combinaisonSecrete[i]) {
+                resultats[0]++; // Nombre de chiffres exacts
+            } else if (proposition[i] > combinaisonSecrete[i]) {
+                resultats[1]++; // Nombre de chiffres trop hauts
+            } else {
+                resultats[2]++; // Nombre de chiffres trop bas
+            }
+        }
+        this.tentatives++;
+        return resultats;
+    }
+
+    public int getTentatives() {
+        return tentatives;
+    }
+
+    public boolean estPerdu() {
+        return tentatives >= MAX_TENTATIVES;
+    }
 }
