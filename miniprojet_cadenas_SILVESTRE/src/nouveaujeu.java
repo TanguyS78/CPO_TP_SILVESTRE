@@ -44,6 +44,55 @@ public class nouveaujeu extends javax.swing.JFrame {
     down_chiffre_3.addActionListener(e -> decrementerLabel(texte_chiffre_2)); // [cite: 50]
     down_chiffre_4.addActionListener(e -> decrementerLabel(texte_chiffre_3)); // [cite: 51]
 
+    bouton_tester.addActionListener(e -> {
+    // 1. Récupérer la proposition du joueur
+    int[] proposition = new int[4];
+    proposition[0] = Integer.parseInt(texte_chiffre_0.getText());
+    proposition[1] = Integer.parseInt(texte_chiffre_1.getText());
+    proposition[2] = Integer.parseInt(texte_chiffre_2.getText());
+    proposition[3] = Integer.parseInt(texte_chiffre_3.getText());
+
+    // 2. Vérifier via la classe Metier
+    int[] resultats = jeu.verifierCombinaison(proposition);
+
+    // 3. Mettre à jour l'interface avec les résultats exacts
+    texte_nb_chiffres_exacts.setText(String.valueOf(resultats[0])); // [cite: 54]
+    texte_nb_chiffres_haut.setText(String.valueOf(resultats[1]));   // [cite: 56]
+    texte_nb_chiffres_bas.setText(String.valueOf(resultats[2]));    // [cite: 58]
+
+    // 4. Mettre à jour les tentatives (ex: "1 sur 5")
+    texte_tentatives.setText(jeu.getTentatives() + " sur " + jeu.MAX_TENTATIVES); // [cite: 60]
+
+    // 5. Gestion de fin de partie (Gagné ou Perdu)
+    if (resultats[0] == 4) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Bravo ! Vous avez trouvé le code !");
+        bouton_tester.setEnabled(false); // Désactive le bouton
+    } else if (jeu.estPerdu()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Perdu ! Vous avez épuisé vos 5 tentatives.");
+        bouton_tester.setEnabled(false);
+    }
+});
+    
+    bouton_recommencer.addActionListener(e -> {
+    // 1. Réinitialiser le métier
+    jeu.genererCombinaison();
+
+    // 2. Remettre les affichages à zéro
+    texte_chiffre_0.setText("0");
+    texte_chiffre_1.setText("0");
+    texte_chiffre_2.setText("0");
+    texte_chiffre_3.setText("0");
+    
+    texte_nb_chiffres_exacts.setText("0");
+    texte_nb_chiffres_haut.setText("0");
+    texte_nb_chiffres_bas.setText("0");
+    texte_tentatives.setText("0 sur 5");
+
+    // 3. Réactiver le bouton tester
+    bouton_tester.setEnabled(true);
+        });
+    
+    
     }
 
     /**
