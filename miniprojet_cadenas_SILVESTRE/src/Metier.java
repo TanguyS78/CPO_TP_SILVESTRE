@@ -47,4 +47,18 @@ public class Metier {
     public boolean estPerdu() {
         return tentatives >= MAX_TENTATIVES;
     }
+    // Méthode pour incrémenter un chiffre (0 -> 1 ... -> 9 -> 0)
+private void incrementerLabel(javax.swing.JLabel label) {
+    int valeur = Integer.parseInt(label.getText());
+    valeur = (valeur + 1) % 10;
+    label.setText(String.valueOf(valeur));
+}
+
+// Méthode pour décrémenter un chiffre (0 -> 9 ... -> 1 -> 0)
+private void decrementerLabel(javax.swing.JLabel label) {
+    int valeur = Integer.parseInt(label.getText());
+    if (valeur == 0) valeur = 9;
+    else valeur--;
+    label.setText(String.valueOf(valeur));
+}
 }
