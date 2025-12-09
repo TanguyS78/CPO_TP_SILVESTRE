@@ -33,7 +33,17 @@ public class nouveaujeu extends javax.swing.JFrame {
      */
     public nouveaujeu() {
         initComponents();
-        
+    up_chiffre_1.addActionListener(e -> incrementerLabel(texte_chiffre_0)); // [cite: 40, 44]
+    up_chiffre_2.addActionListener(e -> incrementerLabel(texte_chiffre_1)); // [cite: 41, 45]
+    up_chiffre_3.addActionListener(e -> incrementerLabel(texte_chiffre_2)); // [cite: 42, 46]
+    up_chiffre_4.addActionListener(e -> incrementerLabel(texte_chiffre_3)); // [cite: 43, 47]
+
+    // Boutons DOWN
+    down_chiffre_1.addActionListener(e -> decrementerLabel(texte_chiffre_0)); // [cite: 48]
+    down_chiffre_2.addActionListener(e -> decrementerLabel(texte_chiffre_1)); // [cite: 49]
+    down_chiffre_3.addActionListener(e -> decrementerLabel(texte_chiffre_2)); // [cite: 50]
+    down_chiffre_4.addActionListener(e -> decrementerLabel(texte_chiffre_3)); // [cite: 51]
+
     }
 
     /**
@@ -201,29 +211,28 @@ public class nouveaujeu extends javax.swing.JFrame {
                     }// </editor-fold>//GEN-END:initComponents
 
     private void down_chiffre_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_1ActionPerformed
-    down_chiffre_1.addActionListener(e -> decrementerLabel(texte_chiffre_0));    }//GEN-LAST:event_down_chiffre_1ActionPerformed
+        }//GEN-LAST:event_down_chiffre_1ActionPerformed
 
     private void up_chiffre_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_1ActionPerformed
-    up_chiffre_1.addActionListener(e -> incrementerLabel(texte_chiffre_0)); // [cite: 40, 44]        // TODO add your handling code here:
     }//GEN-LAST:event_up_chiffre_1ActionPerformed
 
     private void up_chiffre_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_2ActionPerformed
-    up_chiffre_2.addActionListener(e -> incrementerLabel(texte_chiffre_1));    }//GEN-LAST:event_up_chiffre_2ActionPerformed
+        }//GEN-LAST:event_up_chiffre_2ActionPerformed
 
     private void up_chiffre_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_3ActionPerformed
-    up_chiffre_3.addActionListener(e -> incrementerLabel(texte_chiffre_2));    }//GEN-LAST:event_up_chiffre_3ActionPerformed
+        }//GEN-LAST:event_up_chiffre_3ActionPerformed
 
     private void up_chiffre_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_4ActionPerformed
-    up_chiffre_4.addActionListener(e -> incrementerLabel(texte_chiffre_3));    }//GEN-LAST:event_up_chiffre_4ActionPerformed
+        }//GEN-LAST:event_up_chiffre_4ActionPerformed
 
     private void down_chiffre_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_2ActionPerformed
-    down_chiffre_2.addActionListener(e -> decrementerLabel(texte_chiffre_1));    }//GEN-LAST:event_down_chiffre_2ActionPerformed
+        }//GEN-LAST:event_down_chiffre_2ActionPerformed
 
     private void down_chiffre_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_3ActionPerformed
-    down_chiffre_3.addActionListener(e -> decrementerLabel(texte_chiffre_2));    }//GEN-LAST:event_down_chiffre_3ActionPerformed
+     }//GEN-LAST:event_down_chiffre_3ActionPerformed
 
     private void down_chiffre_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_4ActionPerformed
-    down_chiffre_4.addActionListener(e -> decrementerLabel(texte_chiffre_3));    }//GEN-LAST:event_down_chiffre_4ActionPerformed
+      }//GEN-LAST:event_down_chiffre_4ActionPerformed
 
     private void bouton_testerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bouton_testerActionPerformed
         // TODO add your handling code here:
