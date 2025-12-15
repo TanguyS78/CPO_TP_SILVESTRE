@@ -1,0 +1,38 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+/**
+ *
+ * @author SILVESTRE Richard
+ */
+public class Cellule {
+    private boolean presenceBombe;
+    private boolean devoilee;
+    private int nbBombesAdjacentes;
+    
+    public boolean getpresenceBombe() {
+    return presenceBombe;
+    }
+    
+    public boolean getDevoilee() {
+    return devoilee;
+    }
+    
+    public int getNbBombesAdjacentes() {
+    return nbBombesAdjacentes;
+}
+    
+    public void placerbombe(){
+        this.presenceBombe=true;
+    }
+    
+    public void revelerCellule(){
+        this.devoilee=true;
+    }
+    
+    public void setNbBombesAdjacentes (int nvBombesAdjacente){
+        this.nbBombesAdjacentes = nvBombesAdjacente;
+    }
+}
