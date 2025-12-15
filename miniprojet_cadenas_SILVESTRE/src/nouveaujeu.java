@@ -44,7 +44,8 @@ public class nouveaujeu extends javax.swing.JFrame {
     down_chiffre_3.addActionListener(e -> decrementerLabel(texte_chiffre_2)); // [cite: 50]
     down_chiffre_4.addActionListener(e -> decrementerLabel(texte_chiffre_3)); // [cite: 51]
 
-    bouton_tester.addActionListener(e -> {
+    bouton_tester.addActionListener(e -> {    
+            
     // 1. Récupérer la proposition du joueur
     int[] proposition = new int[4];
     proposition[0] = Integer.parseInt(texte_chiffre_0.getText());
