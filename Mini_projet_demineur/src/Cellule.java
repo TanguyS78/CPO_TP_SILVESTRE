@@ -35,4 +35,18 @@ public class Cellule {
     public void setNbBombesAdjacentes (int nvBombesAdjacente){
         this.nbBombesAdjacentes = nvBombesAdjacente;
     }
+    
+    public String toString() {
+        if (devoilee==false) {
+            return "?";
+        }
+        else if (presenceBombe == true){ 
+            return "B";
+        }
+        else if (nbBombesAdjacentes>0){
+            return ""+ nbBombesAdjacentes;
+        } 
+        else 
+            return " ";
+}
 }
