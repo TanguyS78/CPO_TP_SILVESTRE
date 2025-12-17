@@ -41,7 +41,7 @@ public int getnbBombes(){
         for(int j=0;j<nbColonnes;j++){
         this.matriceCellules[i][j] =new Cellule();    
         }
-    }
+    }fff
     
     public void placerBombesAleatoirement (){
         int bombesPlacees = 0;
