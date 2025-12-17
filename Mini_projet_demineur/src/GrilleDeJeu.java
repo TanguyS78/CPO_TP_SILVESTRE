@@ -41,21 +41,45 @@ public int getnbBombes(){
         for(int j=0;j<nbColonnes;j++){
         this.matriceCellules[i][j] =new Cellule();    
         }
-    }fff
-    
-    public void placerBombesAleatoirement (){
-        int bombesPlacees = 0;
-        Random generateur = new Random();
-        
-        while (bombesPlacees < nbBombes){
-        int ligneAleatoire=generateur.nextInt(nbLignes);
-        int colonneAleatoire=generateur.nextInt(nbColonnes);
-        
+    }
+    }
+    public void placerBombesAleatoirement() {
+    Random generateur = new Random();
+    int bombesPlacees = 0;
+
+    while (bombesPlacees < nbBombes) {
+        // 1. On choisit une case au hasard À CHAQUE tour de boucle
+        int i = generateur.nextInt(nbLignes);
+        int j = generateur.nextInt(nbColonnes);
+
+        // 2. On vérifie si la case n'a PAS déjà une bombe
+        if (!matriceCellules[i][j].getPresenceBombe()) {
+            
+            // 3. On place la bombe
+            matriceCellules[i][j].placerBombe();
+            
+            // 4. On valide qu'une bombe de plus est placée
+            bombesPlacees++; 
         }
-        
-        
-    // 2. Créer la matrice (new Cellule[...][...])
+    }
+    }
     
-    // 3. Remplir la grille avec des objets Cellule (double boucle for)
+    public void calculerBombesAdjacentes() {
+        for(int i=0;i<nbLignes;i++){
+        for(int j=0;j<nbColonnes;j++){
+        if (!matriceCellules[i][j].getPresenceBombe()) {
+            int nbBombesVoisines = 0;
+            for (int l = i - 1; l <= i + 1; l++) {
+                for (int c = j - 1; c <= j + 1; c++) {
+                
+        }
+        }
+        }    
+        }}
+        
+        
+        
+        
+    }
 }
 
