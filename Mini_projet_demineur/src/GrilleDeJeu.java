@@ -65,20 +65,34 @@ public int getnbBombes(){
     }
     
     public void calculerBombesAdjacentes() {
-        for(int i=0;i<nbLignes;i++){
-        for(int j=0;j<nbColonnes;j++){
-        if (!matriceCellules[i][j].getPresenceBombe()) {
-            int nbBombesVoisines = 0;
-            for (int l = i - 1; l <= i + 1; l++) {
-                for (int c = j - 1; c <= j + 1; c++) {
+    // On parcourt chaque case de la grille (i, j)
+    for (int i = 0; i < nbLignes; i++) {
+        for (int j = 0; j < nbColonnes; j++) {
+            
+            // Si la case n'est PAS une bombe, on doit compter ses voisines
+            if (!matriceCellules[i][j].getPresenceBombe()) {
+                int nbBombesVoisines = 0;
                 
+                // On regarde les voisins : carré de 3x3 autour de (i, j)
+                for (int l = i - 1; l <= i + 1; l++) {
+                    for (int c = j - 1; c <= j + 1; c++) {
+                        
+                        // 🛡️ SÉCURITÉ : On vérifie que la case voisine (l, c) est bien DANS la grille
+                        // Il ne faut pas sortir en haut (l < 0), en bas (l >= nbLignes), etc.
+                        if (l >= 0 && l < nbLignes && c >= 0 && c < nbColonnes) {
+                            
+                            // Si la case existe, on regarde si c'est une bombe
+                            if (matriceCellules[l][c].getPresenceBombe()) {
+                                nbBombesVoisines++;
+                            }
+                        }
+                    }
+                }
+                // À la fin, on enregistre le nombre trouvé dans la cellule
+                matriceCellules[i][j].setNbBombesAdjacentes(nbBombesVoisines);
+            }
         }
-        }
-        }    
-        }}
-        
-        
-        
+    }
         
     }
 }
