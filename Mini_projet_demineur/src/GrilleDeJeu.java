@@ -7,12 +7,29 @@
  *
  * @author SILVESTRE Richard
  */
+import java.util.Random;
+
+
+
 public class GrilleDeJeu {
     private int nbLignes;
     private int nbColonnes;
     private int nbBombes;
     private Cellule[][] matriceCellules;
     
+public int getnbLignes(){
+    return nbLignes;
+    }
+
+public int getnbColonnes(){
+    return nbColonnes;
+    }
+
+public int getnbBombes(){
+    return nbBombes;
+    }
+
+
     public GrilleDeJeu(int pLignes, int pColonnes, int pBombes) {
     // 1. Initialiser les variables avec les paramètres
     this.nbLignes = pLignes ;
@@ -25,9 +42,20 @@ public class GrilleDeJeu {
         this.matriceCellules[i][j] =new Cellule();    
         }
     }
+    
+    public void placerBombesAleatoirement (){
+        int bombesPlacees = 0;
+        Random generateur = new Random();
+        
+        while (bombesPlacees < nbBombes){
+        int ligneAleatoire=generateur.nextInt(nbLignes);
+        int colonneAleatoire=generateur.nextInt(nbColonnes);
+        
+        }
+        
         
     // 2. Créer la matrice (new Cellule[...][...])
     
     // 3. Remplir la grille avec des objets Cellule (double boucle for)
 }
-}
+
