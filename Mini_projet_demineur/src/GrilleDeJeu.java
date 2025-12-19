@@ -102,5 +102,51 @@ public int getnbBombes(){
             matriceCellules[l][c].revelerCellule();
         }
     }
+    
+    // Affiche la grille dans la console
+    @Override
+    public String toString() {
+        String s = "";
+        // On ajoute les numéros de colonnes en haut pour aider
+        s += "  ";
+        for (int j = 0; j < nbColonnes; j++) {
+            s += j + " ";
+        }
+        s += "\n";
+
+        for (int i = 0; i < nbLignes; i++) {
+            s += i + " "; // Numéro de ligne à gauche
+            for (int j = 0; j < nbColonnes; j++) {
+                s += matriceCellules[i][j].toString() + " ";
+            }
+            s += "\n";
+        }
+        return s;
+    }
+
+    // Vérifie si on a fait exploser une bombe
+    public boolean estPerdu() {
+        for (int i = 0; i < nbLignes; i++) {
+            for (int j = 0; j < nbColonnes; j++) {
+                if (matriceCellules[i][j].getDevoilee() && matriceCellules[i][j].getPresenceBombe()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // Vérifie si on a gagné (toutes les cases sans bombes sont révélées)
+    public boolean estGagne() {
+        for (int i = 0; i < nbLignes; i++) {
+            for (int j = 0; j < nbColonnes; j++) {
+                // Si une case n'est PAS une bombe et qu'elle est encore CACHÉE, on n'a pas fini
+                if (!matriceCellules[i][j].getPresenceBombe() && !matriceCellules[i][j].getDevoilee()) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
 
