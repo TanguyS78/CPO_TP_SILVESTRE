@@ -70,20 +70,33 @@ public class FenetreJeu extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JButton boutonClique = (JButton) e.getSource();
 
+        // 1. On trouve quel bouton a été cliqué pour lancer la logique
         for (int i = 0; i < lignes; i++) {
             for (int j = 0; j < colonnes; j++) {
                 if (boutons[i][j] == boutonClique) {
-                    
+                    // On lance la propagation
                     grille.revelerCellule(i, j);
-                    boutonClique.setText(grille.getCellule(i, j).toString());
-                    boutonClique.setEnabled(false); // Grisage du bouton
-
-                    verifierFinDePartie();
                 }
             }
         }
-    }
 
+        // 2. MISE À JOUR DE TOUTE LA GRILLE
+        // On repasse sur tous les boutons pour voir ceux qui se sont ouverts
+        for (int i = 0; i < lignes; i++) {
+            for (int j = 0; j < colonnes; j++) {
+                Cellule c = grille.getCellule(i, j);
+                
+                // Si la cellule est révélée dans la logique, on met à jour le bouton
+                if (c.getDevoilee()) {
+                    boutons[i][j].setText(c.toString());
+                    boutons[i][j].setEnabled(false); // On désactive le bouton
+                }
+            }
+        }
+
+        // 3. Vérification de fin de partie
+        verifierFinDePartie();
+    }
     private void verifierFinDePartie() {
         if (grille.estPerdu()) {
             JOptionPane.showMessageDialog(this, "BOOM ! Vous avez perdu ! 💥");
