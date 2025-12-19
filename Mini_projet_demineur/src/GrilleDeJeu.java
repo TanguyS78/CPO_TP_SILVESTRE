@@ -148,5 +148,9 @@ public int getnbBombes(){
         }
         return true;
     }
+    //méthode pour récupérer une cellule.
+    public Cellule getCellule(int i, int j) {
+        return matriceCellules[i][j];
+    }
 }
 
