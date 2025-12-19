@@ -95,5 +95,12 @@ public int getnbBombes(){
     }
         
     }
+    
+    // Révèle la cellule à la position donnée
+    public void revelerCellule(int l, int c) {
+        if (l >= 0 && l < nbLignes && c >= 0 && c < nbColonnes) {
+            matriceCellules[l][c].revelerCellule();
+        }
+    }
 }
 
