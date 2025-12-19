@@ -45,12 +45,4 @@ public class Main {
                 System.out.println(grille.toString()); // On affiche la grille finale
                 System.out.println("BOOM ! Vous avez perdu ! 💥");
                 fini = true;
-            } else if (grille.estGagne()) {
-                System.out.println(grille.toString());
-                System.out.println("FÉLICITATIONS ! Vous avez gagné ! 🏆");
-                fini = true;
-            }
-        }
-        scanner.close();
-    }
-}
+        

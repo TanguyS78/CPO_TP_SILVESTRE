@@ -12,7 +12,7 @@ public class Cellule {
     private boolean devoilee;
     private int nbBombesAdjacentes;
     
-    public boolean getpresenceBombe() {
+    public boolean getPresenceBombe() {
     return presenceBombe;
     }
     
@@ -24,7 +24,7 @@ public class Cellule {
     return nbBombesAdjacentes;
 }
     
-    public void placerbombe(){
+    public void placerBombe(){
         this.presenceBombe=true;
     }
     
