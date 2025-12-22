@@ -86,7 +86,7 @@ public class GrilleDeJeu {
         }
 
         // 2. Si la case est déjà ouverte, on sort (pour éviter de tourner en rond)
-        if (matriceCellules[l][c].getDevoilee()) {
+        if (matriceCellules[l][c].isDevoilee()) {
             return;
         }
 
@@ -122,7 +122,7 @@ public class GrilleDeJeu {
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
                 // ATTENTION : vérifie ici si ta méthode s'appelle isDevoilee() ou getDevoilee() dans Cellule
-                if (matriceCellules[i][j].getDevoilee() && matriceCellules[i][j].getPresenceBombe()) {
+                if (matriceCellules[i][j].isDevoilee() && matriceCellules[i][j].getPresenceBombe()) {
                     return true;
                 }
             }
@@ -133,11 +133,16 @@ public class GrilleDeJeu {
     public boolean estGagne() {
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
-                if (!matriceCellules[i][j].getPresenceBombe() && !matriceCellules[i][j].getDevoilee()) {
+                if (!matriceCellules[i][j].getPresenceBombe() && !matriceCellules[i][j].isDevoilee()) {
                     return false;
                 }
             }
         }
         return true;
+    }
+    public void basculerDrapeau(int l, int c) {
+        if (l >= 0 && l < nbLignes && c >= 0 && c < nbColonnes) {
+            matriceCellules[l][c].basculerDrapeau();
+        }
     }
 }
