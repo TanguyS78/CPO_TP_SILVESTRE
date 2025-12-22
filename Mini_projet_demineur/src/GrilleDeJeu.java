@@ -85,20 +85,26 @@ public class GrilleDeJeu {
             return;
         }
 
-        // 2. Si la case est déjà ouverte, on sort (pour éviter de tourner en rond)
+        // 2. Si la case est déjà ouverte, on sort
         if (matriceCellules[l][c].isDevoilee()) {
             return;
         }
 
-        // 3. On révèle la case actuelle
+        // --- NOUVEAU : SÉCURITÉ DRAPEAU ---
+        // 3. Si la case a un drapeau, on INTERDIT l'ouverture (on sort)
+        if (matriceCellules[l][c].isDrapeau()) {
+            return;
+        }
+        // ----------------------------------
+
+        // 4. On révèle la case actuelle
         matriceCellules[l][c].revelerCellule();
 
-        // 4. PROPAGATION : Si la case est vide (0) et pas une bombe
+        // 5. PROPAGATION : Si la case est vide (0) et pas une bombe
         if (matriceCellules[l][c].getNbBombesAdjacentes() == 0 && !matriceCellules[l][c].getPresenceBombe()) {
-            // On appelle récursivement cette même méthode sur les 8 voisins
             for (int i = l - 1; i <= l + 1; i++) {
                 for (int j = c - 1; j <= c + 1; j++) {
-                    if (i != l || j != c) { // On évite de se rappeler soi-même
+                    if (i != l || j != c) {
                         revelerCellule(i, j);
                     }
                 }
