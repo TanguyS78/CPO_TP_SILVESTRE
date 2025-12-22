@@ -11,8 +11,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-// Il faut cet import pour pouvoir modifier les marges
-import java.awt.Insets; 
+import java.awt.Insets;
+// --- NOUVEAUX IMPORTS POUR LE CLIC DROIT ---
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+// -------------------------------------------
 
 public class FenetreJeu extends JFrame implements ActionListener {
     
@@ -43,26 +46,38 @@ public class FenetreJeu extends JFrame implements ActionListener {
         for (int i = 0; i < lignes; i++) {
             for (int j = 0; j < colonnes; j++) {
                 boutons[i][j] = new JButton();
+                
+                // Clic GAUCHE (Révéler)
                 boutons[i][j].addActionListener(this);
                 
-                // --- CORRECTIONS D'AFFICHAGE ---
-                // A. Enlever les marges internes (gagne de la place pour le texte)
+                // --- NOUVEAU : GESTION CLIC DROIT (Drapeau) ---
+                final int r = i; 
+                final int c = j;
+                
+                boutons[i][j].addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        // Si clic droit détecté
+                        if (SwingUtilities.isRightMouseButton(e)) {
+                            grille.basculerDrapeau(r, c);
+                            boutons[r][c].setText(grille.getCellule(r, c).toString());
+                        }
+                    }
+                });
+                // ----------------------------------------------
+
+                // Style
                 boutons[i][j].setMargin(new Insets(0, 0, 0, 0));
-                
-                // B. Police plus petite et lisible
                 boutons[i][j].setFont(new Font("Arial", Font.BOLD, 12));
-                
-                // C. Taille fixe par bouton (45x45 pixels)
                 boutons[i][j].setPreferredSize(new Dimension(45, 45));
-                // -------------------------------
 
                 pan.add(boutons[i][j]);
             }
         }
         
-        // 4. MAGIE : On adapte la fenêtre au contenu au lieu de fixer une taille
+        // 4. Adaptation de la taille
         this.pack();
-        this.setLocationRelativeTo(null); // Centre la fenêtre
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 
@@ -70,33 +85,29 @@ public class FenetreJeu extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JButton boutonClique = (JButton) e.getSource();
 
-        // 1. On trouve quel bouton a été cliqué pour lancer la logique
+        // 1. On trouve et on révèle la case (avec propagation)
         for (int i = 0; i < lignes; i++) {
             for (int j = 0; j < colonnes; j++) {
                 if (boutons[i][j] == boutonClique) {
-                    // On lance la propagation
                     grille.revelerCellule(i, j);
                 }
             }
         }
 
-        // 2. MISE À JOUR DE TOUTE LA GRILLE
-        // On repasse sur tous les boutons pour voir ceux qui se sont ouverts
+        // 2. On met à jour TOUTE la grille (pour afficher la propagation)
         for (int i = 0; i < lignes; i++) {
             for (int j = 0; j < colonnes; j++) {
                 Cellule c = grille.getCellule(i, j);
-                
-                // Si la cellule est révélée dans la logique, on met à jour le bouton
-                if (c.getDevoilee()) {
+                if (c.isDevoilee()) {
                     boutons[i][j].setText(c.toString());
-                    boutons[i][j].setEnabled(false); // On désactive le bouton
+                    boutons[i][j].setEnabled(false);
                 }
             }
         }
 
-        // 3. Vérification de fin de partie
         verifierFinDePartie();
     }
+
     private void verifierFinDePartie() {
         if (grille.estPerdu()) {
             JOptionPane.showMessageDialog(this, "BOOM ! Vous avez perdu ! 💥");
